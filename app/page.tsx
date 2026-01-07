@@ -102,84 +102,84 @@ const aboutCards = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      {/* Hero Section with Video Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+            <source src="/hero-video.webm" type="video/webm" />
+            {/* Fallback gradient if video doesn't load */}
+          </video>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
         
+        {/* Content */}
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-5xl mx-auto text-center text-white"
           >
             <motion.h1
-              className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="font-sans text-4xl md:text-5xl lg:text-6xl font-normal mb-6 drop-shadow-lg tracking-wide"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              The Rotary Silver Jubilee Trust, Sangli
+              We are People of Action
             </motion.h1>
             
             <motion.p
-              className="text-2xl md:text-3xl mb-4 text-accent font-semibold"
+              className="text-base md:text-lg lg:text-xl mb-10 text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Serving Society Since 1974
-            </motion.p>
-            
-            <motion.p
-              className="text-lg md:text-xl mb-8 text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              Established by Rotary Club of Sangli, the Trust has been a cornerstone
-              of social development in Sangli and surrounding regions through landmark
-              projects in education, healthcare, disability support, and community
-              infrastructure.
+              Our global network of more than 1.2 million neighbors, friends, and leaders volunteer their skills and resources to solve issues and address community needs.
             </motion.p>
             
             <motion.div
               className="flex flex-wrap gap-4 justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <Button asChild size="lg" variant="secondary" className="text-base">
-                <Link href="/about">Know Our Work</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Link href="/projects">Our Projects</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-base bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Link href="/contact">Contact Us</Link>
+              <Button 
+                asChild 
+                size="lg" 
+                variant="outline"
+                className="text-sm md:text-base px-8 py-6 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary tracking-wide uppercase font-medium"
+              >
+                <Link href="/about">Take Action With Us</Link>
               </Button>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Decorative element */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-          >
-            <path
-              d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z"
-              fill="white"
-            />
-          </svg>
-        </div>
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+        >
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white/50 rounded-full"></div>
+          </div>
+        </motion.div>
       </section>
 
       {/* About Snapshot Section */}
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial="initial"
@@ -188,15 +188,20 @@ export default function HomePage() {
             variants={staggerContainer}
             className="text-center mb-16"
           >
+            <motion.div variants={fadeInUp} className="inline-block mb-4">
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+                Serving Society Since 1974
+              </span>
+            </motion.div>
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary"
             >
               50+ Years of Dedicated Service
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-muted-foreground max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
             >
               Since our inception, we have been committed to creating sustainable
               social infrastructure that enhances the quality of life for all sections

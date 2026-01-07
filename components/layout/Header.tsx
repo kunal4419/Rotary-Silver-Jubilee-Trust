@@ -25,7 +25,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <div className="flex flex-col">
-              <span className="font-serif text-xl font-bold text-primary md:text-2xl">
+              <span className="font-sans text-xl font-bold text-primary md:text-2xl">
                 Rotary Silver Jubilee Trust
               </span>
               <span className="text-xs text-muted-foreground md:text-sm">

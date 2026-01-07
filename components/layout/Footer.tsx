@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* About */}
           <div>
-            <h3 className="mb-4 font-serif text-lg font-bold">
+            <h3 className="mb-4 font-sans text-lg font-bold">
               The Rotary Silver Jubilee Trust
             </h3>
             <p className="text-sm text-primary-foreground/80">

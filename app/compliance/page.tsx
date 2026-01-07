@@ -72,7 +72,7 @@ export default function CompliancePage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Statutory & Compliance
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">
@@ -92,7 +92,7 @@ export default function CompliancePage() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-4 text-primary">
                 Legal Information
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -152,7 +152,7 @@ export default function CompliancePage() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-4 text-primary">
                 Documents & Certificates
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -215,7 +215,7 @@ export default function CompliancePage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                   <Shield className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-3xl font-serif">
+                <CardTitle className="text-3xl font-sans">
                   CSR Eligibility
                 </CardTitle>
               </CardHeader>
@@ -253,7 +253,7 @@ export default function CompliancePage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-sans text-3xl md:text-4xl font-bold mb-4">
               Need More Information?
             </h2>
             <p className="text-lg mb-8 text-primary-foreground/90">

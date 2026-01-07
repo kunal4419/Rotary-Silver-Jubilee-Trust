@@ -60,7 +60,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               About Us
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">
@@ -81,7 +81,7 @@ export default function AboutPage() {
             className="max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Who We Are
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
@@ -130,7 +130,7 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <Eye className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Our Vision
               </h2>
               <p className="text-xl text-foreground leading-relaxed">
@@ -156,7 +156,7 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <Target className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold text-primary">
                 Our Mission
               </h2>
             </motion.div>
@@ -195,7 +195,7 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <Users className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-4 text-primary">
                 Our Values
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -242,7 +242,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6">
               A Legacy of Impact
             </h2>
             <p className="text-lg mb-4 text-primary-foreground/90 leading-relaxed">

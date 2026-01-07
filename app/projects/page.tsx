@@ -151,7 +151,7 @@ export default function ProjectsPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our Projects
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">

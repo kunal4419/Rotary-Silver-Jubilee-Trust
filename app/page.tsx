@@ -18,6 +18,7 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
+import { ImpactCarousel } from "@/components/ImpactCarousel";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -195,7 +196,7 @@ export default function HomePage() {
             </motion.div>
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary"
+              className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary"
             >
               50+ Years of Dedicated Service
             </motion.h2>
@@ -238,8 +239,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Impact Carousel Section */}
+      <ImpactCarousel />
+
       {/* Landmark Projects Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial="initial"
@@ -250,7 +254,7 @@ export default function HomePage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary"
+              className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-primary"
             >
               Landmark Social Projects
             </motion.h2>
@@ -319,7 +323,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-sans text-3xl md:text-4xl font-bold mb-4">
               Join Us in Making a Difference
             </h2>
             <p className="text-lg mb-8 text-primary-foreground/90">

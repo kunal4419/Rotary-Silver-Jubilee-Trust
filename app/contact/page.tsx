@@ -85,7 +85,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Contact Us
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">
@@ -136,7 +136,7 @@ export default function ContactPage() {
             >
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6 text-primary">
+                  <h2 className="font-sans text-2xl md:text-3xl font-bold mb-6 text-primary">
                     Send Us a Message
                   </h2>
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -265,7 +265,7 @@ export default function ContactPage() {
           >
             <Card className="border-primary/20">
               <CardContent className="p-8">
-                <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6 text-primary text-center">
+                <h2 className="font-sans text-2xl md:text-3xl font-bold mb-6 text-primary text-center">
                   Key Contact Persons
                 </h2>
                 <div className="grid gap-6 md:grid-cols-2">

@@ -158,4 +158,4 @@ For technical support or inquiries:
 
 ---
 
-**Built with ❤️ for social service and community development**
+**Built for social service and community development**

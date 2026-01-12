@@ -143,13 +143,13 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Our Projects
@@ -228,7 +228,7 @@ export default function ProjectsPage() {
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid gap-8 md:grid-cols-4 max-w-5xl mx-auto"
+            className="grid gap-8 md:grid-cols-4 max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center">
               <div className="text-4xl md:text-5xl font-bold mb-2 text-accent">50+</div>

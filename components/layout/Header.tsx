@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -11,15 +11,36 @@ const navItems = [
   { href: "/about", label: "About Us" },
   { href: "/trustees", label: "Trustees" },
   { href: "/projects", label: "Projects" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/compliance", label: "Compliance" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show header when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}

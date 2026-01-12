@@ -10,7 +10,7 @@ import Image from "next/image";
 const impactCards = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop",
+    image: "/images/highlights/DSC_0001.JPG",
     statistic: "50+ YEARS",
     color: "bg-teal-700",
     title: "SERVING SOCIETY SINCE 1974",
@@ -19,7 +19,7 @@ const impactCards = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop",
+    image: "/images/highlights/DSC_0007.JPG",
     statistic: "12+ PROJECTS",
     color: "bg-rose-700",
     title: "WE FUND SUSTAINABLE PROJECTS",
@@ -28,7 +28,7 @@ const impactCards = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=600&fit=crop",
+    image: "/images/highlights/DSC_0474.JPG",
     statistic: "100K+ LIVES",
     color: "bg-blue-700",
     title: "WE CONNECT PEOPLE",
@@ -37,7 +37,7 @@ const impactCards = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&h=600&fit=crop",
+    image: "/images/community/MG-52216-5.jpg",
     statistic: "₹10+ CRORE",
     color: "bg-amber-700",
     title: "COMMUNITY INVESTMENT",

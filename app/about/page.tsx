@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Eye, Target, Users, Shield, Lightbulb, Handshake } from "lucide-react";
 
@@ -52,13 +53,13 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               About Us
@@ -70,18 +71,64 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Who We Are Section */}
-      <section className="py-20 bg-background">
+      {/* Certification Section */}
+      <section className="py-12 bg-background border-b">
         <div className="container mx-auto px-4">
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto"
+            className="max-w-2xl mx-auto"
+          >
+            <motion.div variants={fadeInUp} className="text-center mb-8">
+              <h2 className="font-sans text-2xl md:text-3xl font-bold mb-3 text-primary">
+                Official Recognition
+              </h2>
+              <p className="text-muted-foreground">
+                Chartered member of Rotary International since 1948
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <CardContent className="p-0">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/images/certificates/Rotary Sangli Charter Certificate 1948.jpg"
+                      alt="Rotary Club of Sangli Charter Certificate from 1948"
+                      fill
+                      className="object-contain bg-white p-4 transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                  </div>
+                  <div className="p-6 bg-muted/30 text-center">
+                    <h3 className="font-bold text-lg mb-2 text-primary">
+                      Rotary International Charter Certificate
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Rotary Club of Sangli, India - Chartered 30th December 1948 (Club No. 7146)
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-3xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-12">
-              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6 text-primary">
+              <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6 text-primary text-center">
                 Who We Are
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
@@ -117,14 +164,14 @@ export default function AboutPage() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-12 bg-primary/5">
         <div className="container mx-auto px-4">
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto"
+            className="max-w-3xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center mb-8">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
@@ -143,14 +190,14 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto"
+            className="max-w-3xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="text-center mb-12">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
@@ -183,7 +230,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial="initial"
@@ -233,14 +280,14 @@ export default function AboutPage() {
       </section>
 
       {/* Legacy Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground">
+      <section className="py-12 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-2xl mx-auto text-center"
           >
             <h2 className="font-sans text-3xl md:text-4xl font-bold mb-6">
               A Legacy of Impact

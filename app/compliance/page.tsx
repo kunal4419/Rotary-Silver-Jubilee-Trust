@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileText, Download, Shield, FileCheck } from "lucide-react";
+import { FileText, Shield, FileCheck } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -64,13 +64,13 @@ export default function CompliancePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Statutory & Compliance
@@ -102,7 +102,7 @@ export default function CompliancePage() {
 
             <motion.div
               variants={staggerContainer}
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto"
+              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto"
             >
               {legalInfo.map((info, index) => (
                 <motion.div key={index} variants={fadeInUp}>
@@ -162,7 +162,7 @@ export default function CompliancePage() {
 
             <motion.div
               variants={staggerContainer}
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
+              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto"
             >
               {documents.map((doc, index) => {
                 const Icon = doc.icon;
@@ -176,19 +176,8 @@ export default function CompliancePage() {
                         <CardTitle className="text-xl">{doc.title}</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4">
+                        <p className="text-sm text-muted-foreground">
                           {doc.description}
-                        </p>
-                        <Button
-                          variant="outline"
-                          className="w-full group"
-                          disabled
-                        >
-                          <Download className="w-4 h-4 mr-2 group-hover:translate-y-0.5 transition-transform" />
-                          Download PDF
-                        </Button>
-                        <p className="text-xs text-muted-foreground mt-2 text-center">
-                          Contact office for documents
                         </p>
                       </CardContent>
                     </Card>

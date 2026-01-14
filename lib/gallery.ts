@@ -272,14 +272,6 @@ export const gallery: GalleryItem[] = [
     tags: ["rotary", "network"],
   },
   {
-    src: "/images/international/Rot8.jpg",
-    alt: "International visitors",
-    category: "international",
-    title: "International Guests",
-    caption: "Welcoming global Rotarians",
-    tags: ["international", "guests"],
-  },
-  {
     src: "/images/international/Rot9.jpg",
     alt: "Cross-border partnership",
     category: "international",

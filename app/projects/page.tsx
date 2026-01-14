@@ -1,7 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ProjectGalleryModal } from "@/components/ProjectGalleryModal";
+import { projectGalleries } from "@/lib/projects";
 import {
   Building2,
   Droplet,
@@ -15,6 +19,7 @@ import {
   GraduationCap,
   Leaf,
   Users2,
+  Images,
 } from "lucide-react";
 
 const fadeInUp = {
@@ -140,8 +145,28 @@ const categories = [
 ];
 
 export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
+
+  const openGallery = (projectTitle: string) => {
+    setSelectedProject(projectTitle);
+  };
+
+  const closeGallery = () => {
+    setSelectedProject(null);
+  };
+
   return (
     <>
+      {/* Gallery Modal */}
+      {selectedProject && projectGalleries[selectedProject] && (
+        <ProjectGalleryModal
+          projectTitle={selectedProject}
+          images={projectGalleries[selectedProject]}
+          isOpen={!!selectedProject}
+          onClose={closeGallery}
+        />
+      )}
+
       {/* Hero Section */}
       <section className="relative py-12 md:py-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground">
         <div className="container mx-auto px-4">
@@ -183,6 +208,8 @@ export default function ProjectsPage() {
             >
               {projects.map((project, index) => {
                 const Icon = project.icon;
+                const hasGallery = projectGalleries[project.title]?.length > 0;
+                
                 return (
                   <motion.div key={index} variants={fadeInUp}>
                     <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
@@ -191,10 +218,16 @@ export default function ProjectsPage() {
                           <Icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                         </div>
                         
-                        <div className="mb-3">
+                        <div className="mb-3 flex items-center justify-between">
                           <span className="inline-block px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full">
                             {project.category}
                           </span>
+                          {hasGallery && (
+                            <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <Images className="w-3 h-3" />
+                              {projectGalleries[project.title].length}
+                            </span>
+                          )}
                         </div>
                         
                         <h3 className="font-bold text-xl mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
@@ -205,10 +238,22 @@ export default function ProjectsPage() {
                           {project.description}
                         </p>
                         
-                        <div className="pt-4 border-t border-border">
+                        <div className="pt-4 border-t border-border space-y-3">
                           <p className="text-sm font-semibold text-primary">
                             Impact: {project.impact}
                           </p>
+                          
+                          {hasGallery && (
+                            <Button
+                              onClick={() => openGallery(project.title)}
+                              variant="outline"
+                              size="sm"
+                              className="w-full group/btn"
+                            >
+                              <Images className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                              View Gallery ({projectGalleries[project.title].length} photos)
+                            </Button>
+                          )}
                         </div>
                       </CardContent>
                     </Card>

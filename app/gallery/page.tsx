@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { gallery, type GalleryCategory } from "@/lib/gallery"
@@ -18,6 +18,81 @@ const categories: { label: string; value: GalleryCategory }[] = [
 ]
 
 export default function GalleryPage() {
+  const scrollIntervals = useRef<Map<string, NodeJS.Timeout>>(new Map())
+
+  const startAutoScroll = (categoryId: string, direction: 'left' | 'right' = 'right') => {
+    // Clear any existing interval for this category
+    stopAutoScroll(categoryId)
+    
+    const interval = setInterval(() => {
+      const container = document.getElementById(`scroll-${categoryId}`)
+      if (container) {
+        const scrollWidth = container.scrollWidth
+        const clientWidth = container.clientWidth
+        const halfWidth = scrollWidth / 2
+        
+        if (direction === 'right') {
+          // Scroll forward (right)
+          container.scrollLeft += 2
+          
+          // Reset to beginning when we've scrolled past the first set
+          if (container.scrollLeft >= halfWidth) {
+            container.scrollLeft = 0
+          }
+        } else {
+          // Scroll backward (left)
+          container.scrollLeft -= 2
+          
+          // Reset to middle when we reach the start
+          if (container.scrollLeft <= 0) {
+            container.scrollLeft = halfWidth
+          }
+        }
+      }
+    }, 15) // Faster and smoother scroll
+    
+    scrollIntervals.current.set(categoryId, interval)
+  }
+
+  const stopAutoScroll = (categoryId: string) => {
+    const interval = scrollIntervals.current.get(categoryId)
+    if (interval) {
+      clearInterval(interval)
+      scrollIntervals.current.delete(categoryId)
+    }
+  }
+
+  // Initialize auto-scroll for all categories
+  useEffect(() => {
+    categories.forEach((category, index) => {
+      const categoryImages = gallery.filter((item) => item.category === category.value)
+      if (categoryImages.length > 0) {
+        // Alternate direction: even index scrolls left, odd index scrolls right
+        const direction = index % 2 === 0 ? 'left' : 'right'
+        
+        // Start scrolling from the appropriate position
+        setTimeout(() => {
+          const container = document.getElementById(`scroll-${category.value}`)
+          if (container) {
+            if (direction === 'left') {
+              // Start from middle for left-scrolling rows
+              container.scrollLeft = container.scrollWidth / 2
+            } else {
+              // Start from beginning for right-scrolling rows
+              container.scrollLeft = 0
+            }
+            startAutoScroll(category.value, direction)
+          }
+        }, 100)
+      }
+    })
+
+    // Cleanup on unmount
+    return () => {
+      scrollIntervals.current.forEach((interval) => clearInterval(interval))
+      scrollIntervals.current.clear()
+    }
+  }, [])
 
   const scrollLeft = (categoryId: string) => {
     const container = document.getElementById(`scroll-${categoryId}`)
@@ -54,9 +129,13 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4">
           {/* Category Rows */}
           <div className="space-y-8">
-          {categories.map((category) => {
+          {categories.map((category, index) => {
             const categoryImages = gallery.filter((item) => item.category === category.value)
             if (categoryImages.length === 0) return null
+            
+            // Duplicate images for seamless infinite scroll
+            const duplicatedImages = [...categoryImages, ...categoryImages]
+            const direction = index % 2 === 0 ? 'left' : 'right'
             
             return (
               <div key={category.value} className="group">
@@ -81,10 +160,12 @@ export default function GalleryPage() {
                   {/* Images Container */}
                   <div
                     id={`scroll-${category.value}`}
-                    className="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+                    className="flex gap-3 overflow-x-auto scrollbar-hide pb-4"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    onMouseEnter={() => stopAutoScroll(category.value)}
+                    onMouseLeave={() => startAutoScroll(category.value, direction)}
                   >
-                    {categoryImages.map((item, idx) => (
+                    {duplicatedImages.map((item, idx) => (
                       <div key={`${item.src}-${idx}`} className={`relative flex-shrink-0 rounded-lg overflow-hidden group/item ${
                         category.value === 'leadership' ? 'w-48 h-64 md:w-60 md:h-80' : 'w-64 h-40 md:w-80 md:h-48'
                       }`}>

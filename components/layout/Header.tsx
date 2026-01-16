@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
@@ -45,6 +46,14 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/rotary-international.png"
+              alt="Rotary International logo"
+              width={48}
+              height={48}
+              className="h-12 w-12"
+              priority
+            />
             <div className="flex flex-col">
               <span className="font-sans text-xl font-bold text-primary md:text-2xl">
                 Rotary Silver Jubilee Trust

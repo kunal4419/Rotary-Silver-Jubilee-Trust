@@ -47,7 +47,6 @@ export default function HeroVideo() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/highlights/DSC_0001.JPG"
         >
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
